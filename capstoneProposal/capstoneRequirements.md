@@ -1,4 +1,4 @@
-**Project Submission**
+## **Project Submission**
 
 In this capstone project proposal, prior to completing the following **Capstone Project**, you will leverage what you’ve learned throughout the Nanodegree program to author a proposal for solving a problem of your choice by applying machine learning algorithms and techniques. A project proposal encompasses seven key points:
 
@@ -16,12 +16,12 @@ Be sure that you have collected all of the resources needed (such as datasets, i
 In addition, you may find a technical domain (along with the problem and dataset) as competitions on platforms such as `Kaggle`, or `Devpost`. This can be helpful for discovering a particular problem you may be interested in solving as an alternative to the suggested problem areas above. In many cases, 
 some of the requirements for the capstone proposal are already defined for you when choosing from these platforms.
 
-**Evaluation**
+## **Evaluation**
 
 Your project will be reviewed by a Udacity reviewer against the [**Capstone Project Proposal rubric**](https://review.udacity.com/#!/rubrics/410/view). 
 Be sure to review this rubric thoroughly and self-evaluate your project before submission. All criteria found in the rubric must be meeting specifications for you to pass.
 
-**Submission Files**
+## **Submission Files**
 
 At a minimum, your submission will be required to have the following files listed below. If your submission method of choice is uploading an archive (`*.zip`), 
 please take into consideration the total file size. You will need to include:
