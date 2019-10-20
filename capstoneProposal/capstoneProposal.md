@@ -15,6 +15,8 @@ Solving this problem that can provide the building blocks for several applicatio
 - detecting dysmorphic facial signs for medical diagnosis
 - biometrics / face recognition
 
+Relevant academic research on this domain can be found in the paper [Facial Key Points Detection using Deep Convolutional Neural Network - NaimishNet](https://arxiv.org/pdf/1710.00977.pdf).
+
 I chose this specific challenge because I currently work in the medical diagnosis field. I expect this project to help me understand facial keypoints recognition in a deeper way.
 
 ## **Problem Statement**
@@ -63,5 +65,10 @@ A simple `linear regression` will be used as a baseline model for comparison to 
 - Explore and visualize the data
     - Detect faces Using a `Haar Cascade Classifier`
     - Add eye detection
+- Data augmentaion will be included if results are not satisfactory
 - Train a `Convolutional Neural Network` (`CNN`) to detect facial keypoints
+    - Convolution
+    - Max Pooling
+    - Batch Normalization
+    - Dropout
 - Test the trained model against the `test dataset` throught `RMSE`
