@@ -1,7 +1,8 @@
 # Machine Learning Engineer Nanodegree
+
 ## Capstone Project
-Joe Udacity  
-December 31st, 2050
+Daniel Vargas  
+October 21, 2019
 
 ## I. Definition
 _(approx. 1-2 pages)_
@@ -10,6 +11,17 @@ _(approx. 1-2 pages)_
 In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
 - _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
 - _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
+
+Facial Key Points (FKPs) detection is an important and challenging problem in the field of computer vision, which involves detecting FKPs like centers and corners of eyes, nose tip, etc. The problem is to predict the (x, y) real-valued co-ordinates in the space of image pixels of the FKPs for a given face image. It finds its application in tracking faces in images and videos, analysis of facial expressions, detection of dysmorphic facial signs for medical diagnosis, face recognition, etc.
+Facial features vary greatly from one individual to another, and even for a single individual there is a large amount of variation due to pose, size, position, etc. The problem becomes even more challenging when the face images are taken under different illumination conditions, viewing angles, etc.
+In the past few years, advancements in FKPs detection are made by the application of deep convolutional neural network (DCNN), which is a special type of feed-forward neural network with shared weights and local connectivity. DCNNs have helped build state-of-the-art models for image recognition, recommender systems, natural language processing, etc. Krizhevsky et al. [1] applied DCNN in ImageNet image classification challenge and outperformed the previous state-of-the-art model for image classification.
+Wang et al. [2] addressed FKPs detection by first applying histogram stretching for image contrast enhancement, followed by principal component analysis for noise reduction and mean patch search algorithm with correlation scoring and mutual information scoring for predicting left and right eye centers. Sun et al. [3] estimated FKPs by using a three level convolutional neural network, where at each level, outputs of multiple networks were fused for robust and accurate estimation. Longpre et al. [4] predicted FKPs by first applying data augmentation to expand the number of training examples, followed by testing different architectures of convolutional neural networks like LeNet [5] and VGGNet [6], and finally used a weighted ensemble of models. Nouri et al. [7] used six specialist DCNNs trained over pre-trained weights. Oneto et al. [8] applied a variety of data pre-processing techniques like histogram stretching, Gaussian blurring, followed by image flipping, key point grouping, and then finally applied LeNet.
+Taigman et al. [9] provided a new deep network architecture, DeepFace, for state-of-the-art face recognition. Li et al. [10] provided a new DCNN architecture for state-of-the art face alignment.
+We present a DCNN architecture – NaimishNet, based on LeNet, which addresses the problem of facial key points detection by providing a learning model for a single facial key point.
+
+We have used the dataset from Kaggle Competition – Facial Key Points Detection [17]. The dataset was chosen to benchmark our solution against the existing approaches which address FKPs detection problem.
+There are 15 FKPs per face image like left eye center, right eye center, left eye inner corner, left eye outer corner, right eye inner corner, right eye outer corner, left eyebrow inner end, left eyebrow outer end, right eyebrow inner end, right eyebrow outer end, nose tip, mouth left corner, mouth right corner, mouth center top lip and mouth center bottom lip. Here, left and right are from the point of view of the subject.
+The greyscale input images, with pixel values in range of [0, 255], have size of 96 x 96 pixels. The train dataset consists of 7049 images, with 30 targets, i.e. (x, y) for each of 15 FKPs. It has missing target values for many FKPs for many face images. The test dataset consists of 1783 images with no target information. The Kaggle submission file consists of 27124 FKPs co-ordinates, which are to be predicted.
 
 ### Problem Statement
 In this section, you will want to clearly define the problem that you are trying to solve, including the strategy (outline of tasks) you will use to achieve the desired solution. You should also thoroughly discuss what the intended solution will be for this problem. Questions to ask yourself when writing this section:
@@ -22,6 +34,7 @@ In this section, you will need to clearly define the metrics or calculations you
 - _Are the metrics you’ve chosen to measure the performance of your models clearly discussed and defined?_
 - _Have you provided reasonable justification for the metrics chosen based on the problem and solution?_
 
+RMSE formula here
 
 ## II. Analysis
 _(approx. 2-4 pages)_
@@ -32,6 +45,14 @@ In this section, you will be expected to analyze the data you are using for the 
 - _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
 - _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
 - _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
+
+Data Augmentation helps boost the performance of a deep learning model when the training data is limited by generating more training data. We have horizontally flipped [7] the images for which target information for all the 15 FKPs are available, and also swapped the target values according to Table 3. Then, we vertically stacked the new horizontally flipped data under the original train data to create the augmented train dataset.
+
+Data Preprocessing
+
+The image pixels are normalized to the range [0, 1] by dividing by 255.0, and the train targets are zero-centered to the range [-1, 1] by first dividing by 48.0, since the images are 96 x 96, and then subtracting 48.0.
+
+Figure 1 shows that there are different number of non-missing target rows for different FKPs, so, we have created 15 NaimishNet models.
 
 ### Exploratory Visualization
 In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
