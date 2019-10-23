@@ -49,7 +49,7 @@ A `Convolutional Neural Network` (`CNN`) will be applied to predict the facial k
 
 ## **Benchmark Model**
 
-A simple `linear regression` will be used as a baseline model for comparison to confirm 
+A simple `linear regression` will be used as a baseline model for comparison to confirm.
 
 ## **Evaluation Metrics**
 
