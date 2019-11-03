@@ -132,7 +132,7 @@ Testing set:
 click_id: used for identifying the click for grading purpose
 
 
-![sample image](http://url/to/img.png)
+![sample image](https://github.com/danvargg/mlend/blob/master/capstoneProject/assets/sampla_data.png)
 
 
 
