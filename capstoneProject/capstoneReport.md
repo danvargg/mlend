@@ -84,7 +84,6 @@ The metric used to measure performance of the model i `Root Mean Squared Error` 
 
 
 ## II. Analysis
-_(approx. 2-4 pages)_
 
 ### Data Exploration
 In this section, you will be expected to analyze the data you are using for the problem. This data can either be in the form of a dataset (or datasets), input data (or input files), or even an environment. The type of data should be thoroughly described and, if possible, have basic statistics and information presented (such as discussion of input features or defining characteristics about the input or environment). Any abnormalities or interesting qualities about the data that may need to be addressed have been identified (such as features that need to be transformed or the possibility of outliers). Questions to ask yourself when writing this section:
@@ -133,7 +132,7 @@ Testing set:
 click_id: used for identifying the click for grading purpose
 
 
-
+![sample image](http://url/to/img.png)
 
 
 
