@@ -210,7 +210,6 @@ A benchmark for this problem is a classifying model that randomly guess whether 
 
 
 ## III. Methodology
-_(approx. 3-5 pages)_
 
 ### Data Preprocessing
 In this section, all of your preprocessing steps will need to be clearly documented, if any were necessary. From the previous section, any of the abnormalities or characteristics that you identified about the dataset will be addressed and corrected here. Questions to ask yourself when writing this section:
@@ -249,13 +248,18 @@ In this section, the process for which metrics, algorithms, and techniques that 
 - _Was there any part of the coding process (e.g., writing complicated functions) that should be documented?_
 
 
-he software requirement for the implementation is as followed:
+The software requirement for the implementation is as followed:
 
+```python
 Python >= 3.6
 numpy >= 1.14.3
+keras >= 
+tensorflow >= 
 pandas >= 0.23.0
 scikit-learn >= 0.19.1
 xgboost == 0.72
+```
+
 I first attempted to train an XGBoost model without the engineered features, then planned to compare the performance to the same model trained with data with added features. The model's performance is evaluated by its ROC-AUC score on the testing data. The model's parameters were as followed:
 
 Objective function: logistic binary
@@ -290,7 +294,6 @@ The refinement process started with hyperparameter tuning. Thanks to XGBoost's v
 
 
 ## IV. Results
-_(approx. 2-3 pages)_
 
 ### Model Evaluation and Validation
 In this section, the final model and any supporting qualities should be evaluated in detail. It should be clear how the final model was derived and why this model was chosen. In addition, some type of analysis should be used to validate the robustness of this model and its solution, such as manipulating the input data or environment to see how the model’s solution is affected (this is called sensitivity analysis). Questions to ask yourself when writing this section:
@@ -327,7 +330,6 @@ In the boundaries of the competition, I can say these results are encouraging an
 
 
 ## V. Conclusion
-_(approx. 1-2 pages)_
 
 ### Free-Form Visualization
 In this section, you will need to provide some form of visualization that emphasizes an important quality about the project. It is much more free-form, but should reasonably support a significant result or characteristic about the problem that you want to discuss. Questions to ask yourself when writing this section:
