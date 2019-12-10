@@ -137,15 +137,63 @@ Also, below is an example group of images.
 
 ### Algorithms and Techniques
 
-For this problem, I will use a `**Convolutional Neural Network (CNN)**`: In this, will use a Sequential (there's only a single input) model With 3 different Conv2D layers each having a max pooling layer having a pool size and stride of 2*2. Each layer I have also added batch normalization and dropouts to avoid overfitting. At the end, I have also added 3 fully connected layers With dropouts. In this, have used adam optimizer having epochs set to 200 and a batch size of 128. 
+For this problem, I will use a **`Convolutional Neural Network (CNN)`**: In this, will use a Sequential (there's only a single input) model With 3 different Conv2D layers each having a max pooling layer having a pool size and stride of 2*2. Each layer I have also added batch normalization and dropouts to avoid overfitting. At the end, I have also added 3 fully connected layers With dropouts. In this, have used adam optimizer having epochs set to 200 and a batch size of 128. 
 
 This is the model's summary:
 
-#TODO: CNN summary
+```python
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_5 (Conv2D)            (None, 96, 96, 16)        80        
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 96, 96, 16)        0         
+_________________________________________________________________
+max_pooling2d_5 (MaxPooling2 (None, 48, 48, 16)        0         
+_________________________________________________________________
+batch_normalization_5 (Batch (None, 48, 48, 16)        64        
+_________________________________________________________________
+conv2d_6 (Conv2D)            (None, 44, 44, 32)        12832     
+_________________________________________________________________
+max_pooling2d_6 (MaxPooling2 (None, 22, 22, 32)        0         
+_________________________________________________________________
+dropout_8 (Dropout)          (None, 22, 22, 32)        0         
+_________________________________________________________________
+batch_normalization_6 (Batch (None, 22, 22, 32)        128       
+_________________________________________________________________
+conv2d_7 (Conv2D)            (None, 18, 18, 64)        51264     
+_________________________________________________________________
+max_pooling2d_7 (MaxPooling2 (None, 9, 9, 64)          0         
+_________________________________________________________________
+batch_normalization_7 (Batch (None, 9, 9, 64)          256       
+_________________________________________________________________
+conv2d_8 (Conv2D)            (None, 7, 7, 128)         73856     
+_________________________________________________________________
+max_pooling2d_8 (MaxPooling2 (None, 3, 3, 128)         0         
+_________________________________________________________________
+dropout_9 (Dropout)          (None, 3, 3, 128)         0         
+_________________________________________________________________
+batch_normalization_8 (Batch (None, 3, 3, 128)         512       
+_________________________________________________________________
+flatten_2 (Flatten)          (None, 1152)              0         
+_________________________________________________________________
+dense_7 (Dense)              (None, 500)               576500    
+_________________________________________________________________
+dropout_10 (Dropout)         (None, 500)               0         
+_________________________________________________________________
+dense_8 (Dense)              (None, 128)               64128     
+_________________________________________________________________
+dropout_11 (Dropout)         (None, 128)               0         
+_________________________________________________________________
+dense_9 (Dense)              (None, 30)                3870      
+=================================================================
+Total params: 783,490
+Trainable params: 783,010
+Non-trainable params: 480
+```
 
 ### Benchmark
 
-Multilayer Perceptron (MLP): In this, will use a Sequential model With 3 different layers followed by an activation function "Relu", and will also add a dropout after the first layer. I have used SGD optimizer for this using 50 epochs and a batch size of 128.
+The benchmark Multilayer Perceptron `(MLP)`: In this, will use a Sequential model With 3 different layers followed by an activation function "Relu", and will also add a dropout after the first layer. I have used SGD optimizer for this using 50 epochs and a batch size of 128.
 
 This is the model's summary:
 
