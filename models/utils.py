@@ -57,7 +57,6 @@ def plot_keypoints(img_path,
                    face_cascade=cv2.CascadeClassifier(
                        'haarcascade_frontalface_alt.xml'),
                    model_path='my_model.h5'):
-    # TODO: write a function that plots keypoints on arbitrary image containing human
     img = cv2.imread(img_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray)

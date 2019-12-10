@@ -221,56 +221,26 @@ Non-trainable params: 0
 
 ### Data Preprocessing
 
-So I used only of the dataset which doesn't have any missing values. I will use this to create my base model and after that use the entire dataset for training. From the above figure I can See that there are 2140 samples and for X: 9216 columns [96*96] and for y: 30 columns [x and y co-ordinates each having 15 keypoints]. 
-
-After this we are left With only 2140 samples. 
-After creating my base models, I divided the 15 Landmarks into 6 different groups as shown below: 
-
-I will train my model on each of these 6 groups separately. 
-All 6 models contains the same CNN architecture but the final output layer is adjusted for different 
-number of outputs: for example we have a model for left eye and right eye center landmark prediction. 
-As there are x and y coordinates for both eye centers, we have 4 nodes in the output layer of this model. 
+# TODO: complete
+# TODO: add only % of data used
 
 ### Implementation
 
-As stated earlier I have created 3 base models With 200/0 of the dataset. 
-After that as explained in the Data Preprocessing section, I created a specialist list containing the rest Of 
-the dataset and trained mode12 and mode13 using the same. 
-
-
-The software requirement for the implementation is as followed:
-
-```python
-Python >= 3.6
-numpy >= 1.14.3
-keras >= 
-tensorflow >= 
-pandas >= 0.23.0
-```
+The implemented models are `MLP.h5` and `CNN.h5`
 
 ### Refinement
 
-I experimented With my models quite a bit. 
-increased the number of epochs from 200 to 500 for my base mode12 and it subsequently made my 
-special mode12 models performance better. 
-also increased the number of epochs from 200 to 300 for my base mode13 but it made my special 
-mode13 performance worse. 
+# TODO: complete
 
 ## IV. Results
 
 ### Model Evaluation and Validation
 
-The final model ie, Special mode12 was derived from the base mode12 which I made using 20% of the 
-dataset. 
-As stated in the previous section I experimented With the base model's by increasing its epochs from 
-200 to 500 and the performance was slightly better than the previous one. 
-Note: Please check the justification section. 
-This model's performance after tuning it can be trusted. 
+The final model was evaluated with the dataset provided in **Kaggle** and tested by submitting the results to the competition.
 
 ### Justification
 
-The final model's result is stronger than the base model's result. 
-To prove my point I am attaching my submissions from Kaggle: 
+The final model performs better than the benchmark model on the test set.
 
 ## V. Conclusion
 
@@ -300,9 +270,11 @@ using the Keras image flipping inbuilt technique but to flip the keypoints I had
 
 ### Improvement
 
-There are a few ways in which I can suggest some improvements: 
-1. Tuning/Experimenting With the number of epochs. 
-2. Using different optimizers. 
-3. Tuning/Experimenting With batch size. 
-4. Using different image augmentation techniques such as shifting, scaling etc. 
-One technique I would I like to use in particular is OpenCV but I am not too much familiar With it. 
+# TODO: remove utils
+# TODO: add models to repo
+# TODO: print models' metrics in notebook and add to .md
+
+There are many ways in which the model can be improved. The trade-offs of these improvements would depend on the final purpose o f the model.
+
+- Perform hyperparameters optimization (e.g. random search, bayes optimization)
+- Perform random image augmentation on the training set (e.g. rotations, translations, zoom-in, zoom-out, blur, etc.)
