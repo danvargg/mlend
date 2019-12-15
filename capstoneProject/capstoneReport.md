@@ -2,7 +2,7 @@
 
 ## Capstone Project: Facial Keypoints Detection
 Daniel Vargas  
-October 21, 2019
+December 15, 2019
 
 
 ## I. Definition
@@ -133,58 +133,58 @@ dtypes: float64(30), object(1)
 
 Also, below is an example group of images.
 
-![sample image](./assets/sampla_data.png)
+![sample image](./assets/sample_data.png)
 
 ### Algorithms and Techniques
 
-For this problem, I will use a **`Convolutional Neural Network (CNN)`**: In this, will use a Sequential (there's only a single input) model With 3 different Conv2D layers each having a max pooling layer having a pool size and stride of 2*2. Each layer I have also added batch normalization and dropouts to avoid overfitting. At the end, I have also added 3 fully connected layers With dropouts. In this, have used adam optimizer having epochs set to 200 and a batch size of 128. 
+For this problem, I will use a **`Convolutional Neural Network (CNN)`**: In this, will use a Sequential (there's only a single input) model With 3 different `Conv2D` layers each having a `max pooling` layer having a `pool size` and `stride` of (2, 2). Each layer I have also added `batch normalization` and `dropouts` to mitigate overfitting. At the end, I have also added 3 `fully connected` layers With `dropouts`. In this, have used `adam` optimizer having `epochs` set to 100 and a `batch size` of 128. 
 
 This is the model's summary:
 
 ```python
 Layer (type)                 Output Shape              Param #   
 =================================================================
-conv2d_5 (Conv2D)            (None, 96, 96, 16)        80        
+conv2d_1 (Conv2D)            (None, 96, 96, 16)        80        
 _________________________________________________________________
-dropout_7 (Dropout)          (None, 96, 96, 16)        0         
+dropout_2 (Dropout)          (None, 96, 96, 16)        0         
 _________________________________________________________________
-max_pooling2d_5 (MaxPooling2 (None, 48, 48, 16)        0         
+max_pooling2d_1 (MaxPooling2 (None, 48, 48, 16)        0         
 _________________________________________________________________
-batch_normalization_5 (Batch (None, 48, 48, 16)        64        
+batch_normalization_1 (Batch (None, 48, 48, 16)        64        
 _________________________________________________________________
-conv2d_6 (Conv2D)            (None, 44, 44, 32)        12832     
+conv2d_2 (Conv2D)            (None, 44, 44, 32)        12832     
 _________________________________________________________________
-max_pooling2d_6 (MaxPooling2 (None, 22, 22, 32)        0         
+max_pooling2d_2 (MaxPooling2 (None, 22, 22, 32)        0         
 _________________________________________________________________
-dropout_8 (Dropout)          (None, 22, 22, 32)        0         
+dropout_3 (Dropout)          (None, 22, 22, 32)        0         
 _________________________________________________________________
-batch_normalization_6 (Batch (None, 22, 22, 32)        128       
+batch_normalization_2 (Batch (None, 22, 22, 32)        128       
 _________________________________________________________________
-conv2d_7 (Conv2D)            (None, 18, 18, 64)        51264     
+conv2d_3 (Conv2D)            (None, 18, 18, 64)        51264     
 _________________________________________________________________
-max_pooling2d_7 (MaxPooling2 (None, 9, 9, 64)          0         
+max_pooling2d_3 (MaxPooling2 (None, 9, 9, 64)          0         
 _________________________________________________________________
-batch_normalization_7 (Batch (None, 9, 9, 64)          256       
+batch_normalization_3 (Batch (None, 9, 9, 64)          256       
 _________________________________________________________________
-conv2d_8 (Conv2D)            (None, 7, 7, 128)         73856     
+conv2d_4 (Conv2D)            (None, 7, 7, 128)         73856     
 _________________________________________________________________
-max_pooling2d_8 (MaxPooling2 (None, 3, 3, 128)         0         
+max_pooling2d_4 (MaxPooling2 (None, 3, 3, 128)         0         
 _________________________________________________________________
-dropout_9 (Dropout)          (None, 3, 3, 128)         0         
+dropout_4 (Dropout)          (None, 3, 3, 128)         0         
 _________________________________________________________________
-batch_normalization_8 (Batch (None, 3, 3, 128)         512       
+batch_normalization_4 (Batch (None, 3, 3, 128)         512       
 _________________________________________________________________
-flatten_2 (Flatten)          (None, 1152)              0         
+flatten_1 (Flatten)          (None, 1152)              0         
 _________________________________________________________________
-dense_7 (Dense)              (None, 500)               576500    
+dense_4 (Dense)              (None, 500)               576500    
 _________________________________________________________________
-dropout_10 (Dropout)         (None, 500)               0         
+dropout_5 (Dropout)          (None, 500)               0         
 _________________________________________________________________
-dense_8 (Dense)              (None, 128)               64128     
+dense_5 (Dense)              (None, 128)               64128     
 _________________________________________________________________
-dropout_11 (Dropout)         (None, 128)               0         
+dropout_6 (Dropout)          (None, 128)               0         
 _________________________________________________________________
-dense_9 (Dense)              (None, 30)                3870      
+dense_6 (Dense)              (None, 30)                3870      
 =================================================================
 Total params: 783,490
 Trainable params: 783,010
@@ -193,24 +193,24 @@ Non-trainable params: 480
 
 ### Benchmark
 
-The benchmark Multilayer Perceptron `(MLP)`: In this, will use a Sequential model With 3 different layers followed by an activation function "Relu", and will also add a dropout after the first layer. I have used SGD optimizer for this using 50 epochs and a batch size of 128.
+The benchmark Multilayer Perceptron `(MLP)`: In this, will use a `sequential` model With 3 different layers followed by an activation function `Relu`, and will also add a `dropout` after the first layer. I have used `SGD` optimizer for this using 50 `epochs` and a b`atch size` of 128.
 
 This is the model's summary:
 
 ```python
 Layer (type)                 Output Shape              Param #   
 =================================================================
-dense_7 (Dense)              (None, 256)               2359552   
+dense_1 (Dense)              (None, 256)               2359552   
 _________________________________________________________________
-activation_5 (Activation)    (None, 256)               0         
+activation_1 (Activation)    (None, 256)               0         
 _________________________________________________________________
-dropout_3 (Dropout)          (None, 256)               0         
+dropout_1 (Dropout)          (None, 256)               0         
 _________________________________________________________________
-dense_8 (Dense)              (None, 128)               32896     
+dense_2 (Dense)              (None, 128)               32896     
 _________________________________________________________________
-activation_6 (Activation)    (None, 128)               0         
+activation_2 (Activation)    (None, 128)               0         
 _________________________________________________________________
-dense_9 (Dense)              (None, 30)                3870      
+dense_3 (Dense)              (None, 30)                3870      
 =================================================================
 Total params: 2,396,318
 Trainable params: 2,396,318
@@ -221,16 +221,17 @@ Non-trainable params: 0
 
 ### Data Preprocessing
 
-# TODO: complete
-# TODO: add only % of data used
+Various operations were performed on the data for training.
+
+- Convert the image values to numpy arrays (The `Image` column has pixel values separated by spaces)
+- Drop all rows that have missing values in them
+- Scale all pixel values to `(0, 1)` (normalize)
+- Scale target coordinates to `(-1, 1)`
+- Shuffle train data to mitigate overfitting
 
 ### Implementation
 
-The implemented models are `MLP.h5` and `CNN.h5`
-
-### Refinement
-
-# TODO: complete
+The implemented models are baseline model (`MLP.h5`) and the final model (`CNN.h5`).
 
 ## IV. Results
 
@@ -238,43 +239,37 @@ The implemented models are `MLP.h5` and `CNN.h5`
 
 The final model was evaluated with the dataset provided in **Kaggle** and tested by submitting the results to the competition.
 
+- Baseline model (`MLP.h5`): 
+- Final model (`CNN.h5`): 
+
+![submittions](submittions.png)
+
 ### Justification
 
-The final model performs better than the benchmark model on the test set.
+Based on the score results from **Kaggle**, the final model (`CNN.h5`) performed better than the benchmark model (`MLP.h5`) on the test set.
 
 ## V. Conclusion
-
-### Free-Form Visualization
-
-These two images shows the final models performance in comparison to its base model. 
-" best" - The two model results agree the most. 
-"worst" - The two model results disagree the most. 
 
 ### Reflection
 
 The following steps were taken to complete this process: 
-1. 
-2. 
-3. 
-4. 
-5. 
-Downloaded the dataset from kaggle. 
-Scaled the pixel values. 
-Used 200/0 of the dataset to train the base models. 
-Created special models by dividing the dataset into 6 different groups and trained the base 
-models separately on them. 
-Converted the files to csv and compared their scores on kaggle. 
-As this was the second time apart from dog breed classifier dealt With image classification problem, I 
-have learned a lot from this project. The most challenging part was to create the third base model I tried 
-using the Keras image flipping inbuilt technique but to flip the keypoints I had to flip them manually. 
+
+1. Downloaded the dataset from kaggle
+2. Perfomed data preprocessing
+3. Trained a baseline model for comparison (`MLP.h5`)
+4. Trained a final model for implementation (`CNN.h5`)
+5. Converted the results to `.csv` and submitted them to score them on **Kaggle**
+6. Chose the best model based on the models' individual scores
+
+I learned a lot from this project:
+
+- The importance on investing the time to prepare the data the right way to have a smooth training
+- The importance of having in mind that the model might be implemented, taking into account not only metrics, but also prediction performance
 
 ### Improvement
 
-# TODO: remove utils
-# TODO: add models to repo
-# TODO: print models' metrics in notebook and add to .md
-
-There are many ways in which the model can be improved. The trade-offs of these improvements would depend on the final purpose o f the model.
+There are many ways in which the final model can be improved. The trade-offs of these improvements would depend on the final purpose o f the model.
 
 - Perform hyperparameters optimization (e.g. random search, bayes optimization)
 - Perform random image augmentation on the training set (e.g. rotations, translations, zoom-in, zoom-out, blur, etc.)
+- Quantize the final model before conversion to reduce size and prediction speed
