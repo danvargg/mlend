@@ -239,10 +239,14 @@ The implemented models are baseline model (`MLP.h5`) and the final model (`CNN.h
 
 The final model was evaluated with the dataset provided in **Kaggle** and tested by submitting the results to the competition.
 
-- Baseline model (`MLP.h5`): 
-- Final model (`CNN.h5`): 
+| Model | Private Score | Public Score |
+| ------------- | ------------- | ------------- |
+| Baseline model (`MLP.h5`)  | 4.24427  | 4.28892  |
+| Final model (`CNN.h5`)  | 3.97870  | 3.99583  |
 
-![submittions](submittions.png)
+Below, there's a screenshot of the submissions.
+
+![submittions](./assets/submit.png)
 
 ### Justification
 
